@@ -72,6 +72,7 @@ public class Photo extends DataObject {
 	 * 
 	 */
 	protected Tags tags = Tags.EMPTY_TAGS;
+	protected Location location = null;
 
 	/**
 	 * 
@@ -101,12 +102,21 @@ public class Photo extends DataObject {
 	 * 
 	 * @methodtype constructor
 	 */
-	public Photo(PhotoId myId) {
+	public Photo(PhotoId myId, Location location) {
 		id = myId;
-		
+		this.location = location;
 		incWriteCount();
 	}
-	
+		/**
+	 * 
+	 * @methodtype constructor
+	 */
+	public Photo(PhotoId myId) {
+		id = myId;
+		this.location = null;
+		incWriteCount();
+	}
+
 	/**
 	 * 
 	 * @methodtype constructor
@@ -168,7 +178,9 @@ public class Photo extends DataObject {
 		rset.updateInt("status", status.asInt());
 		rset.updateInt("praise_sum", praiseSum);
 		rset.updateInt("no_votes", noVotes);
-		rset.updateLong("creation_time", creationTime);		
+		rset.updateLong("creation_time", creationTime);
+		Coordinate coord = location.getCoordinate();
+		rset.updateString("location", "x: "+ coord.getX() + " , y: " + coord.getY() + " , z: " +coord.getZ());
 	}
 
 	/**
@@ -462,5 +474,13 @@ public class Photo extends DataObject {
 	public long getCreationTime() {
 		return creationTime;
 	}
+
+	public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public Location getLocation() {
+        return this.location;
+    }
 	
 }
