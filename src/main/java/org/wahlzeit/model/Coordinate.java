@@ -34,4 +34,13 @@ public class Coordinate {
     public void setZ(double z) {
         this.z = z;
 	}
+
+    @Override
+    public boolean equals(Object object) {
+        if(object == null || object.getClass() != Coordinate.class) {
+            return false;
+        }
+        Coordinate c = (Coordinate) object;
+        return (this.getX() == c.getX() && this.getY() == c.getY() && this.getZ() == c.getZ());
+    }
 }
