@@ -35,8 +35,19 @@ public class Coordinate {
         this.z = z;
 	}
 
+    public double getDistance(Coordinate comp){
+        double x_dist = Math.abs(this.getX() - comp.getX());
+        double y_dist = Math.abs(this.getY() - comp.getY());
+        double z_dist = Math.abs(this.getZ() - comp.getZ());
+        return Math.sqrt(x_dist + y_dist + z_dist);
+    }
+
     @Override
     public boolean equals(Object object) {
+        return isEqual(object);
+    }
+
+    public boolean isEqual(Object object) {
         if(object == null || object.getClass() != Coordinate.class) {
             return false;
         }

@@ -53,4 +53,23 @@ public class LocationTest {
         assertFalse(coordinate1.equals(coordinate2));
     }
 
+    @Test
+    public void testGetDistance(){
+        double x = 0.5;
+        double y = 1.9;
+        double z = 4.2;
+
+        Coordinate coordinate1 = new Coordinate(x, y, z);
+
+        double x2 = 0.5;
+        double y2 = 1.9;
+        double z2 = 5.2;
+
+        Coordinate coordinate2 = new Coordinate(x2, y2, z2);
+
+        assertEquals(0, coordinate1.getDistance(coordinate1), 0);
+        assertEquals(1, coordinate1.getDistance(coordinate2), 0);
+
+    }
+
 }
