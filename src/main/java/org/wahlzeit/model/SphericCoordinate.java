@@ -11,15 +11,15 @@ public class SphericCoordinate implements Coordinate{
         this.radius = radius;
     }
 
-    private double getRadius() {
+    public double getRadius() {
         return this.radius;
     }
 
-    private double getTheta() {
+    public double getTheta() {
         return this.theta;
     }
 
-    private double getPhi() {
+    public double getPhi() {
         return this.phi;
     }
 
