@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 public class LocationTest {
 
     @Test
-    public void testCoordinateConstructor(){
+    public void testCartesianCoordinateConstructor(){
         double x = 0.5;
         double y = 1.9;
         double z = 4.2;
@@ -20,7 +20,7 @@ public class LocationTest {
     }
 
     @Test
-    public void testEqualsPositive(){
+    public void testCartesianEqualsPositive(){
         double x = 0.5;
         double y = 1.9;
         double z = 4.2;
@@ -37,7 +37,7 @@ public class LocationTest {
     }
 
     @Test
-    public void testEqualsNegative(){
+    public void testCartesianEqualsNegative(){
         double x = 0.5;
         double y = 1.9;
         double z = 4.2;
@@ -54,7 +54,7 @@ public class LocationTest {
     }
 
     @Test
-    public void testGetDistance(){
+    public void testGetCartesianDistance(){
         double x = 0.5;
         double y = 1.9;
         double z = 4.2;
@@ -67,8 +67,8 @@ public class LocationTest {
 
         CartesianCoordinate coordinate2 = new CartesianCoordinate(x2, y2, z2);
 
-        assertEquals(0, coordinate1.getDistance(coordinate1), 0);
-        assertEquals(1, coordinate1.getDistance(coordinate2), 0);
+        assertEquals(0, coordinate1.getCartesianDistance(coordinate1), 0);
+        assertEquals(1, coordinate1.getCartesianDistance(coordinate2), 0);
 
     }
 

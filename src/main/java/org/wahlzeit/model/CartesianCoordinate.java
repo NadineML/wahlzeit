@@ -55,7 +55,7 @@ public class CartesianCoordinate implements Coordinate{
 
     @Override
     public double getCartesianDistance(Coordinate coordinate) {
-        CartesianCoordinate comp = (CartesianCoordinate) coordinate;
+        CartesianCoordinate comp = coordinate.asCartesianCoordinate();
         double x_dist = Math.pow(this.getX() - comp.getX(), 2);
         double y_dist = Math.pow(this.getY() - comp.getY(), 2);
         double z_dist = Math.pow(this.getZ() - comp.getZ(), 2);
@@ -64,14 +64,16 @@ public class CartesianCoordinate implements Coordinate{
 
     @Override
     public SphericCoordinate asSphericCoordinate() {
-        // TODO Auto-generated method stub
-        return null;
+        double radius = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)+ Math.pow(z, 2));
+        double theta = Math.acos(z/radius);
+        double phi = Math.atan2(y,x);
+        SphericCoordinate sphericCoordinate = new SphericCoordinate(phi, theta, radius);
+        return sphericCoordinate;
     }
 
     @Override
     public double getCentralAngle(Coordinate coordinate) {
-        // TODO Auto-generated method stub
-        return 0;
+        return asSphericCoordinate().getCentralAngle(coordinate);
     }
 
     @Override

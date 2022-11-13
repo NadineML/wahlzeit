@@ -11,39 +11,6 @@ public class SphericCoordinate implements Coordinate{
         this.radius = radius;
     }
 
-    @Override
-    public CartesianCoordinate asCartesianCoordinate() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public double getCartesianDistance(Coordinate coordinate) {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-    @Override
-    public SphericCoordinate asSphericCoordinate() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public double getCentralAngle(Coordinate coordinate) {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-    @Override
-    public boolean isEqual(Coordinate coordinate) {
-        if(coordinate == null || coordinate.getClass() != SphericCoordinate.class) {
-            return false;
-        }
-        SphericCoordinate c = (SphericCoordinate) coordinate;
-        return (this.getPhi() == c.getPhi() && this.getTheta() == c.getTheta() && this.getRadius() == c.getRadius());
-    }
-
     private double getRadius() {
         return this.radius;
     }
@@ -55,5 +22,44 @@ public class SphericCoordinate implements Coordinate{
     private double getPhi() {
         return this.phi;
     }
+
+    @Override
+    public CartesianCoordinate asCartesianCoordinate() {
+        double x = radius*Math.sin(theta)*Math.cos(phi);
+        double y = radius*Math.sin(theta)*Math.sin(phi);
+        double z = radius*Math.cos(theta);
+        return new CartesianCoordinate(x, y, z);
+    }
+
+    @Override
+    public double getCartesianDistance(Coordinate coordinate) {
+        return asCartesianCoordinate().getCartesianDistance(coordinate);
+    }
+
+    @Override
+    public SphericCoordinate asSphericCoordinate() {
+        return this;
+    }
+
+    @Override
+    public double getCentralAngle(Coordinate coordinate) {
+        SphericCoordinate sphericCoord = coordinate.asSphericCoordinate();
+        double deltaTheta = Math.abs(this.theta - sphericCoord.theta);
+        return Math.acos(
+            Math.sin(this.phi) * Math.sin(sphericCoord.phi) + 
+            Math.cos(this.phi) * Math.cos(sphericCoord.phi) * Math.cos(deltaTheta)
+        );
+    }
+
+    @Override
+    public boolean isEqual(Coordinate coordinate) {
+        if(coordinate == null || coordinate.getClass() != SphericCoordinate.class) {
+            return false;
+        }
+        SphericCoordinate c = (SphericCoordinate) coordinate;
+        return (this.getPhi() == c.getPhi() && this.getTheta() == c.getTheta() && this.getRadius() == c.getRadius());
+    }
+
+
 
 }
