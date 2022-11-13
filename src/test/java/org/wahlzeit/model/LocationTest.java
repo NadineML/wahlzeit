@@ -12,7 +12,7 @@ public class LocationTest {
         double y = 1.9;
         double z = 4.2;
 
-        Coordinate coordinate = new Coordinate(x, y, z);
+        CartesianCoordinate coordinate = new CartesianCoordinate(x, y, z);
 
         assertEquals(x, coordinate.getX(), 0);
         assertEquals(y, coordinate.getY(), 0);
@@ -25,13 +25,13 @@ public class LocationTest {
         double y = 1.9;
         double z = 4.2;
 
-        Coordinate coordinate1 = new Coordinate(x, y, z);
+        CartesianCoordinate coordinate1 = new CartesianCoordinate(x, y, z);
 
         double x2 = 0.5;
         double y2 = 1.9;
         double z2 = 4.2;
 
-        Coordinate coordinate2 = new Coordinate(x2, y2, z2);
+        CartesianCoordinate coordinate2 = new CartesianCoordinate(x2, y2, z2);
 
         assertTrue(coordinate1.equals(coordinate2));
     }
@@ -42,13 +42,13 @@ public class LocationTest {
         double y = 1.9;
         double z = 4.2;
 
-        Coordinate coordinate1 = new Coordinate(x, y, z);
+        CartesianCoordinate coordinate1 = new CartesianCoordinate(x, y, z);
 
         double x2 = 0.4;
         double y2 = 6.9;
         double z2 = 0.2;
 
-        Coordinate coordinate2 = new Coordinate(x2, y2, z2);
+        CartesianCoordinate coordinate2 = new CartesianCoordinate(x2, y2, z2);
 
         assertFalse(coordinate1.equals(coordinate2));
     }
@@ -59,13 +59,13 @@ public class LocationTest {
         double y = 1.9;
         double z = 4.2;
 
-        Coordinate coordinate1 = new Coordinate(x, y, z);
+        CartesianCoordinate coordinate1 = new CartesianCoordinate(x, y, z);
 
         double x2 = 0.5;
         double y2 = 1.9;
         double z2 = 5.2;
 
-        Coordinate coordinate2 = new Coordinate(x2, y2, z2);
+        CartesianCoordinate coordinate2 = new CartesianCoordinate(x2, y2, z2);
 
         assertEquals(0, coordinate1.getDistance(coordinate1), 0);
         assertEquals(1, coordinate1.getDistance(coordinate2), 0);
