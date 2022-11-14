@@ -56,13 +56,12 @@ public class SphericCoordinate implements Coordinate{
         if(coordinate == null || coordinate.getClass() != CartesianCoordinate.class && coordinate.getClass() != SphericCoordinate.class) {
             return false;
         }
-        CartesianCoordinate c = null;
-        if(coordinate.getClass() == CartesianCoordinate.class){
-            c = (CartesianCoordinate) coordinate;
+        SphericCoordinate c = null;
+        if(coordinate.getClass() == SphericCoordinate.class){
+            c = (SphericCoordinate) coordinate;
         }else{
-            c = ((SphericCoordinate) coordinate).asCartesianCoordinate();
+            c = ((CartesianCoordinate) coordinate).asSphericCoordinate();
         }
-        SphericCoordinate c = (SphericCoordinate) coordinate;
         return (this.getPhi() == c.getPhi() && this.getTheta() == c.getTheta() && this.getRadius() == c.getRadius());
     }
 
