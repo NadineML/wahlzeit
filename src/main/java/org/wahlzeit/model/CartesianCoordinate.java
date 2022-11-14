@@ -41,10 +41,15 @@ public class CartesianCoordinate implements Coordinate{
     }
 
     public boolean isEqual(Object object) {
-        if(object == null || object.getClass() != CartesianCoordinate.class) {
+        if(object == null || object.getClass() != CartesianCoordinate.class && object.getClass() != SphericCoordinate.class) {
             return false;
         }
-        CartesianCoordinate c = (CartesianCoordinate) object;
+        CartesianCoordinate c = null;
+        if(object.getClass() == CartesianCoordinate.class){
+            c = (CartesianCoordinate) object;
+        }else{
+            c = ((SphericCoordinate) object).asCartesianCoordinate();
+        }
         return (this.getX() == c.getX() && this.getY() == c.getY() && this.getZ() == c.getZ());
     }
 

@@ -53,8 +53,14 @@ public class SphericCoordinate implements Coordinate{
 
     @Override
     public boolean isEqual(Coordinate coordinate) {
-        if(coordinate == null || coordinate.getClass() != SphericCoordinate.class) {
+        if(coordinate == null || coordinate.getClass() != CartesianCoordinate.class && coordinate.getClass() != SphericCoordinate.class) {
             return false;
+        }
+        CartesianCoordinate c = null;
+        if(coordinate.getClass() == CartesianCoordinate.class){
+            c = (CartesianCoordinate) coordinate;
+        }else{
+            c = ((SphericCoordinate) coordinate).asCartesianCoordinate();
         }
         SphericCoordinate c = (SphericCoordinate) coordinate;
         return (this.getPhi() == c.getPhi() && this.getTheta() == c.getTheta() && this.getRadius() == c.getRadius());
