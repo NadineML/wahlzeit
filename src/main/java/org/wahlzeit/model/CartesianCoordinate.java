@@ -1,6 +1,6 @@
 package org.wahlzeit.model;
 
-public class CartesianCoordinate implements Coordinate{
+public class CartesianCoordinate extends AbstractCoordinate{
     private double x;
     private double y;
     private double z;
@@ -36,35 +36,8 @@ public class CartesianCoordinate implements Coordinate{
 	}
 
     @Override
-    public boolean equals(Object object) {
-        return isEqual(object);
-    }
-
-    public boolean isEqual(Object object) {
-        if(object == null || object.getClass() != CartesianCoordinate.class && object.getClass() != SphericCoordinate.class) {
-            return false;
-        }
-        CartesianCoordinate c = null;
-        if(object.getClass() == CartesianCoordinate.class){
-            c = (CartesianCoordinate) object;
-        }else{
-            c = ((SphericCoordinate) object).asCartesianCoordinate();
-        }
-        return (this.getX() == c.getX() && this.getY() == c.getY() && this.getZ() == c.getZ());
-    }
-
-    @Override
     public CartesianCoordinate asCartesianCoordinate() {
         return this;
-    }
-
-    @Override
-    public double getCartesianDistance(Coordinate coordinate) {
-        CartesianCoordinate comp = coordinate.asCartesianCoordinate();
-        double x_dist = Math.pow(this.getX() - comp.getX(), 2);
-        double y_dist = Math.pow(this.getY() - comp.getY(), 2);
-        double z_dist = Math.pow(this.getZ() - comp.getZ(), 2);
-        return Math.sqrt(x_dist + y_dist + z_dist);
     }
 
     @Override
@@ -76,13 +49,4 @@ public class CartesianCoordinate implements Coordinate{
         return sphericCoordinate;
     }
 
-    @Override
-    public double getCentralAngle(Coordinate coordinate) {
-        return asSphericCoordinate().getCentralAngle(coordinate);
-    }
-
-    @Override
-    public boolean isEqual(Coordinate coordinate) {
-        return isEqual(coordinate);
-    }
 }
