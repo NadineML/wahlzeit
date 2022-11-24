@@ -9,6 +9,7 @@ public class SphericCoordinate extends AbstractCoordinate {
         this.phi = phi;
         this.theta = theta;
         this.radius = radius;
+        assertClassInvariants();
     }
 
     public double getRadius() {
@@ -31,8 +32,15 @@ public class SphericCoordinate extends AbstractCoordinate {
         return new CartesianCoordinate(x, y, z);
     }
 
+    private void assertClassInvariants() {
+        assert !Double.isNaN(phi) && Math.abs(phi) <= Math.PI;
+        assert !Double.isNaN(theta) && theta >= 0 && theta <= Math.PI;
+        assert !Double.isNaN(radius) && radius >= 0;
+    }
+
     @Override
     public SphericCoordinate asSphericCoordinate() {
+        assertClassInvariants();
         return this;
     }
 
