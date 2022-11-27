@@ -9,6 +9,7 @@ public class CartesianCoordinate extends AbstractCoordinate{
 		setX(x);
 		setY(y);
 		setZ(z);
+        assertClassInvariants();
 	}
     
     public double getX() {
@@ -36,16 +37,30 @@ public class CartesianCoordinate extends AbstractCoordinate{
 	}
 
     @Override
+    public void assertClassInvariants() {
+        assert !Double.isNaN(x);
+        assert !Double.isNaN(y);
+        assert !Double.isNaN(z);
+    }
+
+    @Override
     public CartesianCoordinate asCartesianCoordinate() {
+        assertClassInvariants();
         return this;
     }
 
     @Override
     public SphericCoordinate asSphericCoordinate() {
+        assertClassInvariants();
         double radius = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)+ Math.pow(z, 2));
         double theta = Math.acos(z/radius);
         double phi = Math.atan2(y,x);
         SphericCoordinate sphericCoordinate = new SphericCoordinate(phi, theta, radius);
+        
+        assert !Double.isNaN(phi) && Math.abs(phi) <= Math.PI;
+        assert !Double.isNaN(theta) && theta >= 0 && theta <= Math.PI;
+        assert !Double.isNaN(radius) && radius >= 0;
+        
         return sphericCoordinate;
     }
 

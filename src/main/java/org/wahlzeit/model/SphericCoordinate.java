@@ -32,7 +32,8 @@ public class SphericCoordinate extends AbstractCoordinate {
         return new CartesianCoordinate(x, y, z);
     }
 
-    private void assertClassInvariants() {
+    @Override
+    public void assertClassInvariants() {
         assert !Double.isNaN(phi) && Math.abs(phi) <= Math.PI;
         assert !Double.isNaN(theta) && theta >= 0 && theta <= Math.PI;
         assert !Double.isNaN(radius) && radius >= 0;
