@@ -52,5 +52,4 @@ public abstract class AbstractCoordinate implements Coordinate {
         return distance;
     }
 
-    public void assertClassInvariants() {}
 }

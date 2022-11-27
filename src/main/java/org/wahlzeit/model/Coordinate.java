@@ -6,4 +6,5 @@ public interface Coordinate {
     public SphericCoordinate asSphericCoordinate();
     public double getCentralAngle(Coordinate coordinate);
     public boolean isEqual(Coordinate coordinate);
+    public void assertClassInvariants();
 }
