@@ -58,7 +58,7 @@ public class CartesianCoordinate extends AbstractCoordinate{
         SphericCoordinate sphericCoordinate = new SphericCoordinate(phi, theta, radius);
         
         assert !Double.isNaN(phi) && Math.abs(phi) <= Math.PI;
-        assert !Double.isNaN(theta) && theta >= 0 && theta <= Math.PI;
+        assert !Double.isNaN(theta) && theta >= 0;
         assert !Double.isNaN(radius) && radius >= 0;
         
         return sphericCoordinate;
