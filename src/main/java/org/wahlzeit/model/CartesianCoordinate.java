@@ -38,9 +38,9 @@ public class CartesianCoordinate extends AbstractCoordinate{
 
     @Override
     public void assertClassInvariants() {
-        assert !Double.isNaN(x);
-        assert !Double.isNaN(y);
-        assert !Double.isNaN(z);
+        assertValidParameter(x, -1, -1);
+        assertValidParameter(y, -1, -1);
+        assertValidParameter(z, -1, -1);
     }
 
     @Override

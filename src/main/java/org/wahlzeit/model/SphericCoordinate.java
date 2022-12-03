@@ -34,9 +34,9 @@ public class SphericCoordinate extends AbstractCoordinate {
 
     @Override
     public void assertClassInvariants() {
-        assert !Double.isNaN(phi) && Math.abs(phi) <= Math.PI;
-        assert !Double.isNaN(theta) && theta >= 0;
-        assert !Double.isNaN(radius) && radius >= 0;
+        assertValidParameter(phi, -Math.PI, Math.PI);
+        assertValidParameter(theta, 0, -1);
+        assertValidParameter(radius, 0, -1);
     }
 
     @Override
