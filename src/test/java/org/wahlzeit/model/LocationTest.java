@@ -19,6 +19,11 @@ public class LocationTest {
         assertEquals(z, coordinate.getZ(), 0);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void testCartesianCoordinateConstructorNegative() {
+        new CartesianCoordinate(1, Double.NaN, 1);
+    }
+
     @Test
     public void testCartesianEqualsPositive(){
         double x = 0.5;
@@ -83,6 +88,11 @@ public class LocationTest {
         assertEquals(x, coordinate.getPhi(), 0);
         assertEquals(y, coordinate.getTheta(), 0);
         assertEquals(z, coordinate.getRadius(), 0);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSphericCoordinateConstructorNegative() {
+        new SphericCoordinate(1, Double.NaN, 1);
     }
 
     @Test
