@@ -35,6 +35,7 @@ public class AnimalPhotoFactory extends PhotoFactory {
 	 * 
 	 */
 	public Photo createPhoto(PhotoId id) {
+		assertValidParameter(id);
 		return new AnimalPhoto(id);
 	}
 
@@ -42,6 +43,13 @@ public class AnimalPhotoFactory extends PhotoFactory {
 	 * 
 	 */
 	public Photo createPhoto(ResultSet rs) throws SQLException {
+		assertValidParameter(rs);
 		return new AnimalPhoto(rs);
 	}
+
+	public void assertValidParameter(Object param) throws IllegalArgumentException{
+        if (param == null) {
+            throw new IllegalArgumentException("The specified object is null");
+        }
+    }
 }

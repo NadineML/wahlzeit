@@ -16,6 +16,13 @@ public class AnimalPhotoManager extends PhotoManager {
 	}
 
     protected Photo createObject(ResultSet rset) throws SQLException {
+		assertValidParameter(rset);
 		return AnimalPhotoFactory.getInstance().createPhoto(rset);
 	}
+
+	public void assertValidParameter(Object param) throws IllegalArgumentException{
+        if (param == null) {
+            throw new IllegalArgumentException("The specified object is null");
+        }
+    }
 }
