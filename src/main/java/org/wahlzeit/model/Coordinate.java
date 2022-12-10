@@ -7,4 +7,5 @@ public interface Coordinate {
     public double getCentralAngle(Coordinate coordinate);
     public boolean isEqual(Coordinate coordinate);
     public void assertClassInvariants();
+    public Coordinate getCoordinate();
 }

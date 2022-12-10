@@ -1,14 +1,14 @@
 package org.wahlzeit.model;
 
 public class CartesianCoordinate extends AbstractCoordinate{
-    private double x;
-    private double y;
-    private double z;
+    private final double x;
+    private final double y;
+    private final double z;
 
 	public CartesianCoordinate(double x, double y, double z) {
-		setX(x);
-		setY(y);
-		setZ(z);
+		this.x = x;
+		this.y = y;
+        this.z = z;
         assertClassInvariants();
 	}
     
@@ -16,24 +16,12 @@ public class CartesianCoordinate extends AbstractCoordinate{
         return x;
 	}
 
-    public void setX(double x) {
-        this.x = x;
-	}
-
     public double getY() {
         return y;
 	}
 
-    public void setY(double y) {
-        this.y = y;
-	}
-
     public double getZ() {
         return z;
-	}
-
-    public void setZ(double z) {
-        this.z = z;
 	}
 
     @Override

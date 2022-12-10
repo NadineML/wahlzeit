@@ -1,9 +1,9 @@
 package org.wahlzeit.model;
 
 public class SphericCoordinate extends AbstractCoordinate {
-    private double phi;
-    private double theta;
-    private double radius;
+    private final double phi;
+    private final double theta;
+    private final double radius;
 
     public SphericCoordinate(double phi, double theta, double radius) {
         this.phi = phi;
