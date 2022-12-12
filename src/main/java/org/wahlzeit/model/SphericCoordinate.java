@@ -9,7 +9,7 @@ public class SphericCoordinate extends AbstractCoordinate {
     private final double theta;
     private final double radius;
 
-    private final ArrayList<SphericCoordinate> coord_objects = new ArrayList<SphericCoordinate>();
+    private final static ArrayList<SphericCoordinate> coord_objects = new ArrayList<SphericCoordinate>();
 
     public SphericCoordinate(double phi, double theta, double radius) {
         this.phi = phi;
@@ -52,8 +52,7 @@ public class SphericCoordinate extends AbstractCoordinate {
         return this;
     }
 
-    @Override
-    public Coordinate getCoordinate(double phi, double theta, double radius) {
+    public static Coordinate getCoordinate(double phi, double theta, double radius) {
         List<SphericCoordinate> objs = coord_objects.stream().filter(x -> x.phi == phi).filter(x -> x.theta == theta).filter(x -> x.radius == radius).collect(Collectors.toList());
         if(!objs.isEmpty()){
             return objs.get(0);

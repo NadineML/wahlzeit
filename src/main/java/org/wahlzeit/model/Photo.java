@@ -161,11 +161,11 @@ public class Photo extends DataObject {
 		maxPhotoSize = PhotoSize.getFromWidthHeight(width, height);
 
 		if(location!=null){
-			location.setCoordinate(new CartesianCoordinate(
+			location.setCoordinate(CartesianCoordinate.getCoordinate(
 				rset.getDouble("x_coord"), 
 				rset.getDouble("y_coord"), 
 				rset.getDouble("z_coord")
-			));
+			).asCartesianCoordinate());
 		}
 	}
 	

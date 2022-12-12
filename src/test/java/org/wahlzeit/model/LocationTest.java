@@ -12,7 +12,7 @@ public class LocationTest {
         double y = 1.9;
         double z = 4.2;
 
-        CartesianCoordinate coordinate = new CartesianCoordinate(x, y, z);
+        CartesianCoordinate coordinate = CartesianCoordinate.getCoordinate(x, y, z).asCartesianCoordinate();
 
         assertEquals(x, coordinate.getX(), 0);
         assertEquals(y, coordinate.getY(), 0);
@@ -21,7 +21,7 @@ public class LocationTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testCartesianCoordinateConstructorNegative() {
-        new CartesianCoordinate(1, Double.NaN, 1);
+        CartesianCoordinate.getCoordinate(1, Double.NaN, 1);
     }
 
     @Test
@@ -30,13 +30,13 @@ public class LocationTest {
         double y = 1.9;
         double z = 4.2;
 
-        CartesianCoordinate coordinate1 = new CartesianCoordinate(x, y, z);
+        CartesianCoordinate coordinate1 = CartesianCoordinate.getCoordinate(x, y, z).asCartesianCoordinate();
 
         double x2 = 0.5;
         double y2 = 1.9;
         double z2 = 4.2;
 
-        CartesianCoordinate coordinate2 = new CartesianCoordinate(x2, y2, z2);
+        CartesianCoordinate coordinate2 = CartesianCoordinate.getCoordinate(x2, y2, z2).asCartesianCoordinate();
 
         assertTrue(coordinate1.equals(coordinate2));
     }
@@ -47,13 +47,13 @@ public class LocationTest {
         double y = 1.9;
         double z = 4.2;
 
-        CartesianCoordinate coordinate1 = new CartesianCoordinate(x, y, z);
+        CartesianCoordinate coordinate1 = CartesianCoordinate.getCoordinate(x, y, z).asCartesianCoordinate();
 
         double x2 = 0.4;
         double y2 = 6.9;
         double z2 = 0.2;
 
-        CartesianCoordinate coordinate2 = new CartesianCoordinate(x2, y2, z2);
+        CartesianCoordinate coordinate2 = CartesianCoordinate.getCoordinate(x2, y2, z2).asCartesianCoordinate();
 
         assertFalse(coordinate1.equals(coordinate2));
     }
@@ -64,13 +64,13 @@ public class LocationTest {
         double y = 1.9;
         double z = 4.2;
 
-        CartesianCoordinate coordinate1 = new CartesianCoordinate(x, y, z);
+        CartesianCoordinate coordinate1 = CartesianCoordinate.getCoordinate(x, y, z).asCartesianCoordinate();
 
         double x2 = 0.5;
         double y2 = 1.9;
         double z2 = 5.2;
 
-        CartesianCoordinate coordinate2 = new CartesianCoordinate(x2, y2, z2);
+        CartesianCoordinate coordinate2 = CartesianCoordinate.getCoordinate(x2, y2, z2).asCartesianCoordinate();
 
         assertEquals(0, coordinate1.getCartesianDistance(coordinate1), 0);
         assertEquals(1, coordinate1.getCartesianDistance(coordinate2), 0);
@@ -83,7 +83,7 @@ public class LocationTest {
         double y = 1.9;
         double z = 4.2;
 
-        SphericCoordinate coordinate = new SphericCoordinate(x, y, z);
+        SphericCoordinate coordinate = SphericCoordinate.getCoordinate(x, y, z).asSphericCoordinate();
 
         assertEquals(x, coordinate.getPhi(), 0);
         assertEquals(y, coordinate.getTheta(), 0);
@@ -92,7 +92,7 @@ public class LocationTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testSphericCoordinateConstructorNegative() {
-        new SphericCoordinate(1, Double.NaN, 1);
+        SphericCoordinate.getCoordinate(1, Double.NaN, 1);
     }
 
     @Test
@@ -101,13 +101,13 @@ public class LocationTest {
         double y = 1.9;
         double z = 4.2;
 
-        CartesianCoordinate coordinate1 = new CartesianCoordinate(x, y, z);
+        CartesianCoordinate coordinate1 = CartesianCoordinate.getCoordinate(x, y, z).asCartesianCoordinate();
 
         double x2 = 0.5;
         double y2 = 1.9;
         double z2 = 4.2;
 
-        CartesianCoordinate coordinate2 = new CartesianCoordinate(x2, y2, z2);
+        CartesianCoordinate coordinate2 = CartesianCoordinate.getCoordinate(x2, y2, z2).asCartesianCoordinate();
 
         assertTrue(coordinate1.equals(coordinate2));
     }
@@ -118,13 +118,13 @@ public class LocationTest {
         double y = 1.9;
         double z = 4.2;
 
-        SphericCoordinate coordinate1 = new SphericCoordinate(x, y, z);
+        SphericCoordinate coordinate1 = SphericCoordinate.getCoordinate(x, y, z).asSphericCoordinate();
 
         double x2 = 0.4;
         double y2 = 6.9;
         double z2 = 0.2;
 
-        SphericCoordinate coordinate2 = new SphericCoordinate(x2, y2, z2);
+        SphericCoordinate coordinate2 = SphericCoordinate.getCoordinate(x2, y2, z2).asSphericCoordinate();
 
         assertFalse(coordinate1.equals(coordinate2));
     }
@@ -135,13 +135,13 @@ public class LocationTest {
         double y = 1.9;
         double z = 4.2;
 
-        SphericCoordinate coordinate1 = new SphericCoordinate(x, y, z);
+        SphericCoordinate coordinate1 = SphericCoordinate.getCoordinate(x, y, z).asSphericCoordinate();
 
         double x2 = 0.5;
         double y2 = 1.9;
         double z2 = 5.2;
 
-        SphericCoordinate coordinate2 = new SphericCoordinate(x2, y2, z2);
+        SphericCoordinate coordinate2 = SphericCoordinate.getCoordinate(x2, y2, z2).asSphericCoordinate();
 
         assertEquals(0, coordinate1.getCartesianDistance(coordinate1), 0);
         assertEquals(1, coordinate1.getCartesianDistance(coordinate2), 0.1);

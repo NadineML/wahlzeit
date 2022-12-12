@@ -9,7 +9,7 @@ public class CartesianCoordinate extends AbstractCoordinate{
     private final double y;
     private final double z;
 
-    private final ArrayList<CartesianCoordinate> coord_objects = new ArrayList<CartesianCoordinate>();
+    private final static ArrayList<CartesianCoordinate> coord_objects = new ArrayList<CartesianCoordinate>();
 
 	public CartesianCoordinate(double x, double y, double z) {
 		this.x = x;
@@ -50,7 +50,7 @@ public class CartesianCoordinate extends AbstractCoordinate{
         double radius = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)+ Math.pow(z, 2));
         double theta = Math.acos(z/radius);
         double phi = Math.atan2(y,x);
-        SphericCoordinate sphericCoordinate = new SphericCoordinate(phi, theta, radius);
+        SphericCoordinate sphericCoordinate = SphericCoordinate.getCoordinate(phi, theta, radius).asSphericCoordinate();
         
         assert !Double.isNaN(phi) && Math.abs(phi) <= Math.PI;
         assert !Double.isNaN(theta) && theta >= 0;
@@ -59,8 +59,7 @@ public class CartesianCoordinate extends AbstractCoordinate{
         return sphericCoordinate;
     }
 
-    @Override
-    public Coordinate getCoordinate(double x, double y, double z) {
+    public static Coordinate getCoordinate(double x, double y, double z) {
         List<CartesianCoordinate> objs = coord_objects.stream().filter(a -> a.x == x).filter(a -> a.y == y).filter(a -> a.z == z).collect(Collectors.toList());
         if(!objs.isEmpty()){
             return objs.get(0);
