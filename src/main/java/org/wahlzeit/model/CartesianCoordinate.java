@@ -3,7 +3,12 @@ package org.wahlzeit.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.wahlzeit.annotations.PatternInstance;
 
+@PatternInstance( 
+	patternName = "Value Object",
+	participants = {"Value Object"}
+)
 public class CartesianCoordinate extends AbstractCoordinate{
     private final double x;
     private final double y;

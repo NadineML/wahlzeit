@@ -9,8 +9,14 @@ import java.io.*;
 import java.sql.*;
 import java.util.*;
 
+import org.wahlzeit.annotations.PatternInstance;
 import org.wahlzeit.main.*;
 import org.wahlzeit.services.*;
+
+@PatternInstance(
+	patternName = "Singleton",
+	participants = {"Singleton"}
+)
 
 /**
  * A photo manager provides access to and manages photos.

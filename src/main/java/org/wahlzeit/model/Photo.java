@@ -8,9 +8,16 @@ package org.wahlzeit.model;
 import java.sql.*;
 import java.net.*;
 
+import org.wahlzeit.annotations.PatternInstance;
 import org.wahlzeit.services.*;
 import org.wahlzeit.utils.*;
 
+@PatternInstance( 
+	patternName = "Abstract Factory",
+	participants = {
+		"AbstractProduct", "ImplementedProduct"
+	}
+)
 /**
  * A photo represents a user-provided (uploaded) photo.
  */

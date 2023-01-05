@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.wahlzeit.annotations.PatternInstance;
+
+@PatternInstance( 
+	patternName = "Value Object",
+	participants = {"Value Object"}
+)
 public class SphericCoordinate extends AbstractCoordinate {
     private final double phi;
     private final double theta;
