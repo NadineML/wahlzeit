@@ -10,9 +10,11 @@ import java.sql.*;
 import org.wahlzeit.annotations.PatternInstance;
 import org.wahlzeit.services.*;
 
-@PatternInstance(
-	patternName = "Singleton",
-	participants = {"Instance"}
+@PatternInstance( 
+	patternName = "Abstract Factory",
+	participants = {
+		"AbstractFactory", "ConcreteFactory"
+	}
 )
 /**
  * An Abstract Factory for creating photos and related objects.
