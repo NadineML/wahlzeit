@@ -15,7 +15,7 @@ import org.wahlzeit.utils.*;
 @PatternInstance( 
 	patternName = "Abstract Factory",
 	participants = {
-		"AbstractProduct", "ImplementedProduct"
+		"AbstractProduct", "ConcreteProduct"
 	}
 )
 /**
