@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AnimalPhoto extends Photo {
+    private Animal animal;
 
     public AnimalPhoto(PhotoId id) {
         super(id);
@@ -17,4 +18,12 @@ public class AnimalPhoto extends Photo {
         super(rs);
     }
     
+    public AnimalPhoto(Animal animal) {
+        super();
+        this.animal = animal;
+    }
+
+    public void setAnimal(Animal animal) {
+        this.animal = animal;
+    }
 }
