@@ -18,6 +18,7 @@ public class AnimalType {
 		subTypes = new HashSet<AnimalType>();
 	}
 
+	// calls constructor of Animal, is called by createAnimal method in AnimalManager
 	public Animal createInstance() {
 		return new Animal(this);
 	}

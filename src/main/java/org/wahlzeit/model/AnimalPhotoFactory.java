@@ -26,7 +26,7 @@ public class AnimalPhotoFactory extends PhotoFactory {
 		
 		instance = photoFactory;
 	}
-
+	// different implementations of createPhoto method call different versions of the AnimalPhoto constructor to create an instance
     public Photo createPhoto() {
 		return new AnimalPhoto();
 	}

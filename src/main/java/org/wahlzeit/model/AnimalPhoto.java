@@ -6,6 +6,7 @@ import java.sql.SQLException;
 public class AnimalPhoto extends Photo {
     private Animal animal;
 
+    // different constructors for AnimalPhoto, called by createPhoto methods in AnimalPhotoFactory
     public AnimalPhoto(PhotoId id) {
         super(id);
     }

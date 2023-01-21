@@ -12,6 +12,7 @@ public class AnimalManager {
         return instance;
     }
 
+    // creates Animal instance via calls to AnimalType to Animal
     public Animal createAnimal(String typeName) {
         if(typeName == null) {
             throw new IllegalArgumentException("TypeName should not be null!");
