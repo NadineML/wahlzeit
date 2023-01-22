@@ -3,6 +3,16 @@ package org.wahlzeit.model;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/* 
+Object creation table:
+- Delegation: separate-object
+- Selection: by-subclassing 
+- Configuration: in-code
+- Instantiation: in-code
+- Initialization: default
+- Building: default 
+*/
+
 public class AnimalPhoto extends Photo {
     private Animal animal;
 

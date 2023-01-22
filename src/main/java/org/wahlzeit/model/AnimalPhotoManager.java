@@ -15,6 +15,7 @@ public class AnimalPhotoManager extends PhotoManager {
 		return instance;
 	}
 
+	// creates an AnimalPhoto via calls to AnimalPhotoFactroy -> AnimalPhoto
     protected Photo createObject(ResultSet rset) throws SQLException {
 		assertValidParameter(rset);
 		return AnimalPhotoFactory.getInstance().createPhoto(rset);
