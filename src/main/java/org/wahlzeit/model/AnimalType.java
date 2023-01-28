@@ -2,6 +2,12 @@ package org.wahlzeit.model;
 import java.util.Iterator;
 import java.util.HashSet;
 
+/*
+AnimalType - Animal Collaboration:
+- Collaboration Type: Type-Object
+- Role: Type Object
+- Binds: Animal
+*/
 
 public class AnimalType {
 

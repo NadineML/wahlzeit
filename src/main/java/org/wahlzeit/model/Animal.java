@@ -9,6 +9,28 @@ Object creation table:
 - Initialization: default
 - Building: default 
 */
+
+/*
+AnimalPhoto - Animal Collaboration:
+- Collaboration Type: Client-Service
+- Role: Service
+- Binds: AnimalPhoto
+*/
+
+/*
+AnimalManager - Animal Collaboration:
+- Collaboration Type: Manager-Element
+- Role: Element
+- Binds: AnimalManager
+*/
+
+/*
+AnimalType - Animal Collaboration:
+- Collaboration Type: Type-Object
+- Role: Base Object
+- Binds: AnimalType
+*/
+
 public class Animal {
     private static int numberOfInstances = 0;
 

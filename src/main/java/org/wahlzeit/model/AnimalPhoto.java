@@ -13,6 +13,15 @@ Object creation table:
 - Building: default 
 */
 
+/*
+AnimalPhoto - Animal Collaboration:
+- Collaboration Type: Client-Service
+- Role: client
+- Binds: Animal
+*/
+
+
+
 public class AnimalPhoto extends Photo {
     private Animal animal;
 

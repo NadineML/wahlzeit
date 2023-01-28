@@ -2,6 +2,13 @@ package org.wahlzeit.model;
 
 import java.util.HashMap;
 
+/*
+AnimalManager - Animal Collaboration:
+- Collaboration Type: Manager-Element
+- Role: Manager
+- Binds: Animal
+*/
+
 public class AnimalManager {
 
     protected static final AnimalManager instance = new AnimalManager();
